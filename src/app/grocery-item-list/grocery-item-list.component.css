@@ -1,0 +1,20 @@
+input[type=checkbox]:checked + label.overlined{
+  text-decoration: line-through;
+}
+
+.checkbox {
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+}
+.form-check label {
+  text-align: center;
+}
+.fa {
+  font-size: 20px;
+  margin-left: 90px;
+}
+
+
+
+

@@ -2,11 +2,11 @@
     <label>Write your item here</label>
     <input class="form-control" [(ngModel)]="groceryItem" type="text" (change)='addNewGroceryItem()'/>
   </div>
-
+<p>And watch your list grows...</p>
 <div class="form-check" *ngFor="let element of groceryList | async">
   <li class="list-group-item list-group-item-success">
-    <input type="checkbox" [(ngModel)]="checkboxValue" (change)="checkCheckbox()"/>
-    {{element.groceryItem.item}}
+    <input type="checkbox" class="checkbox"/>
+    <label class="overlined">{{element.groceryItem.item}}</label>
     <span style="cursor: pointer" (click)="removeItem(element.groceryItem.id)">
       <i class="fa fa-times"></i>
     </span>

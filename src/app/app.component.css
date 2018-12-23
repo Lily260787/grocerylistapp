@@ -3,11 +3,6 @@ body {
   margin: auto;
 }
 
-.jumbotron ul li {
-  width: 30%;
-  margin: auto;
-}
-
 .jumbotron p {
   font-size: 20px;
   font-weight: bold;
@@ -25,5 +20,6 @@ body {
   margin: auto;
   text-align: center;
 }
+
 
 

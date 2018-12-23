@@ -14,7 +14,8 @@ export class GroceryItemListComponent implements OnInit, OnDestroy {
   groceryList: Observable<GroceryItem[]>;
   currentGroceryItem: string;
   private groceryItemSub: Subscription; // I subscribe to all events concerning the groceryItemService
-
+  checkboxValue: boolean;
+  completedItem: boolean;
   constructor(private groceryItemService: GroceryItemService) { }
 
   ngOnInit() {
@@ -33,9 +34,11 @@ export class GroceryItemListComponent implements OnInit, OnDestroy {
 
   removeItem(id) {
     this.groceryItemService.deleteGroceryItem(id);
-    console.log("to remove from the list");
   }
 
+  onCompletedItem(value:boolean){
+    this.checkboxValue = value;
+  }
 
 
 }

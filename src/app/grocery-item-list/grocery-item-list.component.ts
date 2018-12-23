@@ -26,19 +26,21 @@ export class GroceryItemListComponent implements OnInit, OnDestroy {
     this.groceryItemSub.unsubscribe();
   }
 
-  loadGroceryItem(itemId: string){
-    this.groceryItemService.getGroceryItem(itemId);
-  }
-
-  addNewGroceryItem(){
+  addNewGroceryItem() {
     this.groceryItemService.newGroceryItem(this.groceryItem);
     this.getGroceryList();
   }
 
-  getGroceryList(){
+  getGroceryList() {
     console.log(this.groceryList);
     this.groceryItemService.showGroceryList(this.groceryList);
   }
+
+  removeItem(id) {
+    this.groceryItemService.deleteGroceryItem(id);
+    console.log("to remove from the list");
+  }
+
 
 
 }

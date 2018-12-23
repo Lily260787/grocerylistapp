@@ -1,10 +1,17 @@
 <input [(ngModel)]="groceryItem" type="text" (change)='addNewGroceryItem()'/>
 
-<div>
+<!--div>
   <h2>Liste</h2>
   <ul>
     <li *ngFor="let element of groceryList | async">
       {{element.groceryItem.item}}
     </li>
   </ul>
+</div-->
+<div class="form-check" *ngFor="let element of groceryList | async">
+  <input type="checkbox" [(ngModel)]="checkboxValue" (change)="checkCheckbox()"/>
+  <label class="form-check-label" for="defaultCheck1" >
+    {{element.groceryItem.item}}
+  </label>
+  <span style="cursor: pointer" (click)="removeItem(element.groceryItem.id)"><i class="fa fa-times"></i></span>
 </div>

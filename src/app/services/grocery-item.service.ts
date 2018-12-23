@@ -29,6 +29,10 @@ export class GroceryItemService {
     console.log("groceryList vaut "+JSON.stringify(groceryList));
   }
 
+  deleteGroceryItem(groceryItemId){
+    this.socket.emit('removeFromGroceryList', {groceryItemId: groceryItemId})
+  }
+
   static generateRandomId(){
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   }

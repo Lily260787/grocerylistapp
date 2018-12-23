@@ -28,6 +28,7 @@ export class GroceryItemListComponent implements OnInit, OnDestroy {
 
   addNewGroceryItem() {
     this.groceryItemService.newGroceryItem(this.groceryItem);
+    this.groceryItem = '';
   }
 
   removeItem(id) {

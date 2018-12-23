@@ -11,11 +11,7 @@ export class GroceryItemService {
   constructor(private socket: Socket) { }
 
   newGroceryItem(groceryItem){
-    //console.log("toto vaut "+toto);
-    //console.log("currentGroceryItem vaut "+JSON.stringify(this.currentGroceryItem));
-    //console.log("groceryItems vaut "+JSON.stringify(this.groceryItems));
-    //console.log("socket vaut +"this.socket);
-    this.socket.emit('addGroceryItem', {id: GroceryItemService.generateRandomId(), item: groceryItem, bought: false});
+    this.socket.emit('addGroceryItem', {id: GroceryItemService.generateRandomId(), item: groceryItem});
   }
 
   deleteGroceryItem(groceryItemId){

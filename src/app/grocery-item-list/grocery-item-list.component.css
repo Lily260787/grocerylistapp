@@ -12,7 +12,7 @@ input[type=checkbox]:checked + label.overlined{
 }
 .fa {
   font-size: 20px;
-  margin-left: 90px;
+  margin-left: 90px; 
 }
 
 

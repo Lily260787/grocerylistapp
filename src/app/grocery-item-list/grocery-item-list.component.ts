@@ -8,8 +8,9 @@ import {Observable, Subscription} from "rxjs";
   styleUrls: ['./grocery-item-list.component.css']
 })
 export class GroceryItemListComponent implements OnInit, OnDestroy {
-  toto: string = '';
+  groceryItem: string = '';//sent by NgModel
   groceryItems: Observable<string[]>;
+  groceryList: Observable<string[]>;
   currentGroceryItem: string;
   private groceryItemSub: Subscription; // I subscribe to all events concerning the groceryItemService
 
@@ -18,6 +19,7 @@ export class GroceryItemListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.groceryItems = this.groceryItemService.groceryItems;
     this.groceryItemSub = this.groceryItemService.currentGroceryItem.subscribe(groceryItem => this.currentGroceryItem = groceryItem.id);
+    this.groceryList = this.groceryItemService.groceryList;
   }
 
   ngOnDestroy() {
@@ -29,8 +31,13 @@ export class GroceryItemListComponent implements OnInit, OnDestroy {
   }
 
   addNewGroceryItem(){
-    console.log(this.toto);
-    this.groceryItemService.newGroceryItem(this.toto);
+    this.groceryItemService.newGroceryItem(this.groceryItem);
+    this.getGroceryList();
+  }
+
+  getGroceryList(){
+    console.log(this.groceryList);
+    this.groceryItemService.showGroceryList(this.groceryList);
   }
 
 

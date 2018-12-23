@@ -1,0 +1,38 @@
+{
+  "name": "pug-bootstrap",
+  "version": "0.0.11",
+  "homepage": "https://github.com/mike-goodwin/pug-bootstrap",
+  "authors": [
+    "https://github.com/mike-goodwin",
+    "https://github.com/techjeffharris",
+    "https://github.com/Nakira",
+    "https://github.com/thylux"
+  ],
+  "description": "Bootstrap framework written completely using mixins in pug - forked from JADE-Bootstrap",
+  "main": "_bootstrap.pug",
+  "keywords": [
+    "pug",
+    "bootstrap",
+    "frontend",
+    "ui",
+    "framework"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.0.11",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.11",
+    "commit": "1c088e605e5670991d09c74d5b177b85cf6b3468"
+  },
+  "_source": "https://github.com/mike-goodwin/pug-bootstrap.git",
+  "_target": "^0.0.11",
+  "_originalSource": "pug-bootstrap",
+  "_direct": true
+}

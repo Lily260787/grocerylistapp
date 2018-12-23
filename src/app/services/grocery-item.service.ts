@@ -6,15 +6,9 @@ import { GroceryItem } from '../models/grocery-item';
 })
 export class GroceryItemService {
   currentGroceryItem = this.socket.fromEvent<GroceryItem>('groceryItem');//put into currentGroceryItem element got by firing groceryItem event
-  groceryItems = this.socket.fromEvent<string[]>('groceryItems');//define event sent from socket.io
-  groceryList = this.socket.fromEvent<string[]>('displayGroceryList');
+  groceryList = this.socket.fromEvent<GroceryItem[]>('groceryItems');//define event sent from socket.io
 
   constructor(private socket: Socket) { }
-
-  //link here events from socket.io
-  getGroceryItem(itemId: string){
-    this.socket.emit('getGroceryItem', itemId);
-  }
 
   newGroceryItem(groceryItem){
     //console.log("toto vaut "+toto);
@@ -22,11 +16,6 @@ export class GroceryItemService {
     //console.log("groceryItems vaut "+JSON.stringify(this.groceryItems));
     //console.log("socket vaut +"this.socket);
     this.socket.emit('addGroceryItem', {id: GroceryItemService.generateRandomId(), item: groceryItem, bought: false});
-  }
-
-  showGroceryList(groceryList){
-    this.socket.emit('displayGroceryList', {groceryList: groceryList});
-    console.log("groceryList vaut "+JSON.stringify(groceryList));
   }
 
   deleteGroceryItem(groceryItemId){

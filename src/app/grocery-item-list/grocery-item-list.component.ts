@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GroceryItemService } from 'src/app/services/grocery-item.service';
 import {Observable, Subscription} from "rxjs";
+import {GroceryItem} from "../models/grocery-item";
 
 @Component({
   selector: 'app-grocery-item-list',
@@ -10,14 +11,13 @@ import {Observable, Subscription} from "rxjs";
 export class GroceryItemListComponent implements OnInit, OnDestroy {
   groceryItem: string = '';//sent by NgModel
   groceryItems: Observable<string[]>;
-  groceryList: Observable<string[]>;
+  groceryList: Observable<GroceryItem[]>;
   currentGroceryItem: string;
   private groceryItemSub: Subscription; // I subscribe to all events concerning the groceryItemService
 
   constructor(private groceryItemService: GroceryItemService) { }
 
   ngOnInit() {
-    this.groceryItems = this.groceryItemService.groceryItems;
     this.groceryItemSub = this.groceryItemService.currentGroceryItem.subscribe(groceryItem => this.currentGroceryItem = groceryItem.id);
     this.groceryList = this.groceryItemService.groceryList;
   }
@@ -28,12 +28,6 @@ export class GroceryItemListComponent implements OnInit, OnDestroy {
 
   addNewGroceryItem() {
     this.groceryItemService.newGroceryItem(this.groceryItem);
-    this.getGroceryList();
-  }
-
-  getGroceryList() {
-    console.log(this.groceryList);
-    this.groceryItemService.showGroceryList(this.groceryList);
   }
 
   removeItem(id) {
